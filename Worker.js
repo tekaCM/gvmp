@@ -37,6 +37,11 @@ class Server {
         return axios.get(`${this.mainUrl}/whitelist/ip/validate/${id}`)
                 .then(response => response.data)  
     }
+
+    getServers() {
+        return axios.get(`${this.mainUrl}/server`)
+                .then(response => response.data)
+    }
 }
 
 exports.Server = Server;
