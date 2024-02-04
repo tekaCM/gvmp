@@ -1,5 +1,10 @@
-const ConfigManager = require("./Config");
-const config = new ConfigManager("./secret/Data.json");
+const axios = require("axios");
+
+const auth_token = "YOUR_AUTH_TOKEN"
+      name       = "Dr-Christian_Cunningham"
+      proxy      = "onyxia.gvmp.de"
+      forum_id   = 1;
+    
 
 class Server {
     constructor() {
@@ -18,10 +23,10 @@ class Server {
 
     whitelistPlayer() {
         const payload = {
-            auth_token: config.read("auth_token"),
-            name: config.read("username"),
-            proxy: config.read("proxy"),
-            forum_id: config.read("forum_id")
+            auth_token: auth_token,
+            name: name,
+            proxy: proxy,
+            forum_id: forum_id
         }
 
         return axios.post(`${this.mainUrl}/player/whitelist`, payload)
